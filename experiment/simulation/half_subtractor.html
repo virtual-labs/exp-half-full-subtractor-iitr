@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="EMF Generation">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <title>HALF SUBTRACTOR</title>
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+  <script src="graph.ob.js"></script>
+  <script src="graph_line_use.ob.js"></script>
+  <style type="text/css">
+  body 
+  {
+    background-color: #ECEFF4;
+
+  }
+
+  h1
+  {
+    color: maroon;
+  } 
+  #wrapper
+  {
+    width:100%;
+  }
+ 
+  .dropbtn
+  {
+    background-color: blue;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  .dropbtn:hover, .dropbtn:focus
+  {
+    background-color: blue;
+  }
+  .dropdown
+  {
+    position: relative;
+    display: inline-block;
+  }
+  .dropdown-content
+  {
+    display: none;
+    position: relative;
+    background-color: lightblue ;
+    min-width: 750px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  .dropdown-content a 
+  {
+    color: navy;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  .dropdown a:hover 
+  {
+    background-color: mistyrose;
+  }
+  .show 
+  {
+    display:block;
+  }
+  #kit
+  {
+    background-color: ;
+    height: 500px;
+    top: 200px;
+    left: 100px;
+    margin: 41px;
+
+  }
+
+  .v_img {
+  z-index: 2;
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  left: 45%;
+  bottom: 250px;
+  transition: transform 2s linear;
+  transform-origin: 29% 70%;
+  transform-style: preserve-3D;
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+  </style>
+  </head>
+  <body outline:black;>
+  </br>
+  <div class="dropdown" style="left:40px; top:-1px;">
+    <button onclick="dropdown()" class="dropbtn">INSTRUCTIONS
+    </button>
+     <div id="myDropdown" class="dropdown-content">
+      <a href="#home">  
+                    <b>1) Connect the Supply(+5V) to the IC.(on Power Supply Switch)</b><br/><br/>
+                    <b>2) Press the switches for inputs "A" and "B".</b><br/><br/>
+                    <b>The switch in ON state is <img src="switchon.png" width="50" height="30" > and the switch in OFF state is <img src="switchoff.png" width="50" height="30" > .</b><br/><br/>
+                    <b>3) Click "Add" To Obtain The Truth Table For Different Inputs.</b><br/><br/>
+                    <b>4) After Obtaining  Truth Table Click "Print".</b>
+      </a>
+    </div>
+</div>
+<div id="wrapper" style="position:absolute; border: 2px solid #3385ff; top:89px;width:1300px;height:900px;left:20px">
+  <div style="position:absolute; font-size:13px;background-color: blue;top:0px;left:0px;width:410px; height:40px;font-weight: bold;">
+    <p style="text-align:center; color:white;font-family: Verdana"> 
+      <b>Experiment to perform logic of half Subtractor on kit</b>
+    </p>
+  </div>
+  <div id="kit" style="left:50px;top:200px;">
+  <form id="myForm">
+
+   <div style="position:absolute;left:151px;top:360px;" >
+    <table width="0%" border=0>
+     <tr>
+      <td>
+        <p style="color:blue;font-size: 11px;" align="center">Input A</p>
+          <img id="A" onclick="changeImage()" src="switchoff.png" width="70" height="40">
+    </div>
+      </td>
+    </tr>
+      <td>
+        <p style="color:blue;font-size: 11px;" align="center">Input B</p>
+
+        <img id="B" onclick="changeImage1()" src="switchoff.png" width="70" height="40">
+          
+</td>
+       </tr>
+     </table>
+   </div>
+
+                                           <!--Supply = +5V-->
+<p style="position: absolute;left: 150px; top:40px;"><b>V<sub>cc</sub>: +5V</b></p>
+<img style="position: absolute;left: 140px;top:79px;"id="myImage1" src="redn.jpg" style="width:5px" width="700" height="2">
+<img style="position: absolute;left: 244.5px;top:412px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 246.5px;top:77px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 557.5px;top:77px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 582px;top:367px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 839px;top:367px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 834.5px;top:77px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+
+<img style="position: absolute;left: 308px;top:502px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 549px;top:412px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 905px;top:475px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 1055px;top:475px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 429px;top:388px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 728px;top:388px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 1040px;top:388px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+
+<img style="position: absolute;left: 250px;top:80px;"id="myImage2" src="redn.jpg" style="width:5px" width="2" height="43">
+<img style="position: absolute;left: 276px;top:495px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 872px;top:495px;"id="myImage1" src="red.png" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 560px;top:80px;"id="myImage3" src="redn.jpg" style="width:5px" width="2" height="38">
+<img style="position: absolute;left: 839px;top:80px;"id="myImage4" src="redn.jpg" style="width:5px" width="2" height="49">
+<img style="position: absolute;left: 30px;top:80px;"id="myImage5" src="red.jpg" style="width:5px" width="7" height="7">
+<img style="position: absolute;left: 60px;top:80px;"id="myImage6" src="red.jpg" style="width:5px" width="7" height="7">
+
+                                              <!--GND-->
+<img style="position: absolute;left: 430px;top:390px;"id="myImage6" src="redn.jpg" style="width:5px" width="658" height="1.5">
+<img style="position: absolute;left: 430px;top:315px;"id="myImage2" src="redn.jpg" style="width:5px" width="2" height="75">
+<img style="position: absolute;left: 730px;top:325px;"id="myImage3" src="redn.jpg" style="width:5px" width="2" height="66">
+<img style="position: absolute;left: 1042px;top:308px;"id="myImage4" src="redn.jpg" style="width:5px" width="2" height="84">
+
+
+
+
+                                            <!--INPUT-A-->
+
+<img style="position: absolute;left: 222px;top:415px;"id="myImage7" src="redn.jpg" style="width:5px" width="333" height="2">
+<img style="position: absolute;left: 247px;top:320px;"id="myImage3" src="redn.jpg" style="width:5px" width="2" height="95">
+<img style="position: absolute;left: 553px;top:326px;"id="myImage3" src="redn.jpg" style="width:5px" width="2" height="92">
+<img style="position: absolute;left: 585px;top:326px;"id="myImage3" src="redn.jpg" style="width:5px" width="2" height="45">
+<img style="position: absolute;left: 585px;top:370px;"id="myImage7" src="redn.jpg" style="width:5px" width="259" height="2">
+<img style="position: absolute;left: 843px;top:292px;"id="myImage3" src="redn.jpg" style="width:5px" width="2" height="80">
+
+<!--<img  class="v_img" id="vimage" src="redn.png" style="position: absolute;left: 224px; top:80px;" width="30" height="2">-->
+<!--<img  class="v_img" id="vimage" src="redn.png" style="position: absolute;left: 224px; top:80px;" width="30" height="2">-->
+
+
+                                            <!--INPUT-B-->
+<img style="position: absolute;left: 222px;top:497px;"id="myImage8" src="redn.jpg" style="width:5px" width="655" height="2">
+<img style="position: absolute;left: 875px;top:288px;"id="myImage3" src="redn.jpg" style="width:5px" width="2" height="210">
+<img style="position: absolute;left: 278px;top:315px;"id="myImage3" src="redn.jpg" style="width:5px" width="2" height="184">
+<img style="position: absolute;left: 310px;top:315px;"id="myImage3" src="redn.jpg" style="width:5px" width="2" height="192">
+<img style="position: absolute;left: 906px;top:288px;"id="myImage3" src="redn.jpg" style="width:5px" width="2" height="190">
+<!--<img  class="v_img" id="vimage" src="redn.png" style="position: absolute;left: 224px; top:80px;" width="60" height="2">-->
+<!--<img  class="v_img" id="vimage" src="redn.png" style="position: absolute;left: 224px; top:80px;" width="60" height="2">-->
+
+                                          
+                                             <!--connections-->
+<img style="position: absolute;left: 312px;top:505px;"id="myImage9" src="redn.jpg" style="width:5px" width="666" height="2">
+<img style="position: absolute;left: 977px;top:505px;"id="myImage3" src="redn.jpg" style="width:5px" width="2" height="14">
+<img style="position: absolute;left: 976px;top:577px;"id="myImage3" src="redn.jpg" style="width:5px" width="2" height="56">
+<img style="position: absolute;left: 976px;top:647px;"id="myImage3" src="redn.jpg" style="width:5px" width="2" height="8">
+<img style="position: absolute;left: 973px;top:630px;"id="myImage3" src="red.png" style="width:5px" width="8" height="8">
+<img style="position: absolute;left: 973px;top:641px;"id="myImage3" src="red.png" style="width:5px" width="8" height="8">
+<img style="position: absolute;left: 1058px;top:630px;"id="myImage3" src="red.png" style="width:5px" width="8" height="8">
+<img style="position: absolute;left: 1058px;top:641px;"id="myImage3" src="red.png" style="width:5px" width="8" height="8">
+<img style="position: absolute;left: 906px;top:477px;"id="myImage10" src="redn.jpg" style="width:5px" width="155" height="2">
+<img style="position: absolute;left: 1060px;top:477px;"id="myImage3" src="redn.jpg" style="width:5px" width="2" height="42">
+<img style="position: absolute;left: 1061px;top:577px;"id="myImage3" src="redn.jpg" style="width:5px" width="2" height="60">
+<img style="position: absolute;left: 1061px;top:645px;"id="myImage3" src="redn.jpg" style="width:5px" width="2" height="10">
+
+<p style="position: absolute;left: 150px; top:40px;"><b>V<sub>cc</sub>: +5V</b></p>
+<p style="position: absolute; left: 880px; top: 520px"><b>R<sub>1</sub>: 330 ohm</b></p>
+<p style="position: absolute;left: 1077px; top: 520px"><b>R<sub>2</sub>: 330 ohm</b></p>
+<p style="position: absolute; left: 875px; top: 570px"><b>Difference</b></p>
+<p style="position: absolute; left: 875px; top: 614px"><b>LED 1</b></p>
+<p style="position: absolute; left: 1150px; top: 614px"><b>LED 2</b></p>
+<p style="position: absolute;left: 1077px; top: 570px"><b>Borrow</b></p>
+<img style="position: absolute;left: 977px;top:652px;"id="myImage10" src="redn.jpg" style="width:5px" width="85" height="3">
+
+<!--<p style="position: absolute;left: 360px; top: 310px"><b>IC: 7486(XOR Gate)</b></p>-->
+<!--<p style="position: absolute;left: 660px; top: 310px"><b>IC: 7408(AND Gate)</b></p>-->
+<p style="position: absolute;left:1040px; top: 430px"><b>GND</b></p>
+<p style="position: absolute;left:1005px; top:700px"><b>GND</b></p>
+
+
+
+
+<div style="position:absolute;left:200px;top:100px;">
+<table width="0%" border="0"> 
+<tr>
+      <td>
+        <img src="7486_Quad_2-input_ExOR_Gates.png"  width="275" height="230"> 
+       </td>
+       </tr>
+</table>
+</div>
+<div style="position:absolute;left:500px;top:100px;">
+<table width="0%" border="0"> 
+<tr>
+      <td>
+        <img src="imageedit_56_9740119930.png"  width="275" height="230"> 
+       </td>
+       </tr>
+</table>
+</div>
+
+<div style="position:absolute;left:250px;top:180px;">
+  <tr>
+      <td>
+        <p style="position: absolute; left:20px; top:10px"><b>7486(XORGate)</b></p> 
+      </td>
+  </tr>
+</div>
+
+
+<div style="position:absolute;left:880px;top:180px;">
+  <tr>
+      <td>
+        <p style="position: absolute;left: 20px; top: 12px"><b>7408(ANDGate)</b></p> 
+      </td>
+  </tr>
+</div>
+
+
+
+<div style="position:absolute;left:800px;top:120px;">
+<table width="0%" border="0"> 
+<tr>
+      <td>
+        
+        <img src="NV_0507_Marston_Figure16_3.png" width="275" height="190">  
+       </td>
+       </tr>
+</table>
+</div>
+<div style="position:absolute;left:964px;top:515px;">
+<table width="0%" border="0"> 
+<tr>
+  <td>
+    
+    <img src="res1.png"  width="20" height="60">
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <img id="O" src="off.png"  width="70" height="100">
+  </td>
+</tr>
+
+</table>
+</div>
+
+
+<div style="position:absolute;left:1049px;top:515px;">
+<table width="0%" border="0"> 
+<tr>
+  <td>
+    
+    <img src="res1.png"  width="20" height="60">
+  </td>
+</tr>
+
+<tr>
+  <td>
+    <img id="P" src="off.png"  width="70" height="100">
+  </td>
+</tr>
+
+</table>
+</div>
+
+<div style="position:absolute;left:1005px;top:652px;">
+<table width="0%" border="0"> 
+<tr>
+      <td>
+        
+        <img src="grd.png"  width="30" height="50">  
+       </td>
+       </tr>
+</table>
+</div>
+
+
+
+<div style="position:absolute;left:1071.5px;top:387px;">
+<table width="0%" border="0"> 
+<tr>
+      <td>
+        
+        <img src="grd.png"  width="30" height="50">  
+       </td>
+       </tr>
+</table>
+</div>
+<div style="position:absolute;left:69px;top:26px;" >
+    <table width="0%" border=0>
+     <tr>
+      <td>
+        <p style="color:blue;font-size: 11px;" align="center">Power Supply</p>
+          <img id="C" onclick="changeImage3()" src="switchoff.png" width="70" height="40">
+    </div>
+</div>
+</br></br></br></br></br></br></br></br></br></br></br></br>
+    <div id="tblwrap" style="position:absolute; border: 2px solid #3385ff; top:520px;width:500px;height:300px;left:80px">
+                <div style="position:absolute;font-size:16px;background-color:#3385ff;top:0px;left:0px; width:500px;height:130px;font-weight: bold;"><p style="color:white"> 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TRUTH TABLE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style=" background: #27d447 !important;height:30px; width:85px;" id = "button" type = "button" value = "ADD" onclick="add()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style=" background: #27d447 !important;height:30px; width:85px;" id = "button" type = "button" value = "PRINT" onclick="print()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <div id="table" style="background-color: #ECEFF4;; position:absolute; top:50px;width:500px;height:250px;left:0px; overflow-y: auto;">
+                    <table id="mytable" width="500" border="1" style="text-align:center" >
+                        <tr>
+                            <th width="25">Serial No.</th>
+                            <th width="25">Input A</th>
+                            <th width="25">Input B</th>
+                            <th width="25">Difference</th>
+                            <th width="25">Borrow</th>
+                          </tr>
+                      </table>
+                    </form>
+                </div>
+    </div>
+<script>
+
+function dropdown() 
+{
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+function changeImage3() 
+{
+    var image3 = document.getElementById("C");
+    if (image3.src.match("switchoff"))
+     {
+       
+       image3.src = "switchon.png";
+        
+      }
+       else
+        image3.src = "switchoff.png";
+         document.getElementById("O").src="off.png";
+        document.getElementById("P").src="off.png";
+}
+function changeImage() 
+{   
+  var image3 = document.getElementById("C");
+    var image1 = document.getElementById("A");
+    if(image3.src.match("switchon"))
+    {
+    if (image1.src.match("switchoff"))
+     {
+       
+       image1.src = "switchon.png";  
+        Glow();
+      }
+      else
+        image1.src = "switchoff.png";
+        Glow();
+      }
+      if(image3.src.match("switchoff"))
+      {
+        alert("On Power Supply");
+      }
+
+}
+function changeImage1() 
+{  
+    var image3 = document.getElementById("C");
+    var image2 = document.getElementById("B");
+    if(image3.src.match("switchon"))
+    {
+    if (image2.src.match("switchoff"))
+     {
+       
+       image2.src = "switchon.png";
+        Glow();
+      }
+       else
+        image2.src = "switchoff.png";
+        Glow();
+}    if(image3.src.match("switchoff"))
+      {
+        alert("On Power Supply");
+      }
+    }
+
+function Glow()
+{
+    var e = document.getElementById("A");
+    var f = document.getElementById("B");
+    if(e.src.match("switchoff")&& f.src.match("switchoff"))
+    {
+       document.getElementById("O").src="off.png";
+       document.getElementById("P").src="off.png";     
+    }
+    if(e.src.match("switchoff")&& f.src.match("switchon"))
+    {
+       document.getElementById("O").src="on.png";
+       document.getElementById("P").src="on.png";     
+    }
+    if(e.src.match("switchon")&& f.src.match("switchoff"))
+    {
+       document.getElementById("O").src="on.png";
+       document.getElementById("P").src="off.png";     
+    }
+    if(e.src.match("switchon")&& f.src.match("switchon"))
+    {
+       document.getElementById("O").src="off.png";
+       document.getElementById("P").src="off.png";     
+    }
+  }
+var n=1;
+function add()
+{ var image3=document.getElementById("C");
+
+
+	if(image3.src.match("switchoff"))
+      {
+        alert("On Power Supply");
+      }
+      else
+      {
+    var e = document.getElementById("A");
+    var f = document.getElementById("B");
+   if(e.src.match("switchoff") && f.src.match("switchoff"))
+    {
+      a=b=c=d=0;
+    }
+     if(e.src.match("switchoff") && f.src.match("switchon"))
+    {
+      a=0;
+      b=c=d=1;
+    }
+      if(e.src.match("switchon") && f.src.match("switchoff"))
+    {
+      a=c=1;
+      b=d=0;
+    }
+      if(e.src.match("switchon") && f.src.match("switchon"))
+    {
+      a=b=1;
+      c=d=0;
+    }
+                    var table = document.getElementById("mytable");
+                    // Create an empty <tr> element and add it to the 1st position of the table:
+                    var row = table.insertRow(-1);
+                    // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
+                    var cell4 = row.insertCell(3);
+                    var cell5 = row.insertCell(4);
+                    cell1.innerHTML = n++;
+                    cell2.innerHTML = a;
+                    cell3.innerHTML = b;
+                    cell4.innerHTML = c;
+                    cell5.innerHTML = d;
+}
+}
+</script>
+</div>
+</div>
+</form>
+</body>
+</html>
